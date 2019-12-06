@@ -5,7 +5,8 @@ library(leaflet)
 
 # create a grid of roughly equidistant points
 coord_df <- expand.grid( lat = seq(25,50,length.out = 50),
-                         lon = seq(-124,-66, length.out = 90) )
+                         lon = seq(-124,-66, length.out = 90) ) %>% 
+              mutate( project = 'space_for_time' )
 
 # test it 
 leaflet(data = coord_df ) %>% 
